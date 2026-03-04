@@ -33,13 +33,20 @@ public class Caneta{
        this.estaTampada = false;
 
     }
-    public void escrever(String escrever) {
+    public void escrever(String texto) {
 
-        if (this.estaTampada == false
-                && this.quantidadeTinta >= 10 ) {
-            System.out.println("Voce escreveu: " + escrever);
-
+        if (this.estaTampada) {
+            System.out.println("Não é possível escrever. A caneta está tampada.");
+            return;
         }
+
+        if (this.quantidadeTinta < 10) {
+            System.out.println("Tinta insuficiente.");
+            return;
+        }
+
+        System.out.println("Você escreveu: " + texto);
+        this.quantidadeTinta -= 10; // altera o estado
     }
 
 
